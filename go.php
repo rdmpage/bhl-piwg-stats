@@ -137,13 +137,15 @@ echo "# Impact of new-style BHL DOIs \"10.5962/p.\"";
 	echo "\n## How relevant are articles with new-style BHL DOIs?\n";
 	echo "If articles with new style DOis are relevant to current researcher then we would expect to see them cited in recently published papers. This table lists the number of citations of new DOI in each year, showing that recently papers do indeed cite BHL content. Note also that citation links are continually updated, so that newlyy minted DOIs are enabling citation links to be created between works have been published long before BHL began.\n";
 
-	$sql = "SELECT SUBSTR(creation,1,4) AS year, COUNT(cited) as count FROM citation GROUP BY year ORDER BY year DESC";
+	$sql = "SELECT SUBSTR(creation,1,4)/10 * 10 AS decade, COUNT(cited) as count FROM citation GROUP BY decade ORDER BY decade DESC";
 
 	$data = do_query($sql);
 
 	// print_r($data);
 
 	data_to_table($data);
+	
+	
 }
 
 
