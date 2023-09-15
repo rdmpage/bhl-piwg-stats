@@ -97,55 +97,56 @@ Activity for each year.
 
 
 ## When does Unpaywall say BHL is best?
-[Unpaywall](https://unpaywall.org/) has a database of open access versions of articles, which includes content in BHL. Here we count the number of non-BHL DOIs where BHL is the "best" source. This is a measure of how much BHL is enabling access to paywalled articles, and depends on BHL adding external DOIs to its content.
+[Unpaywall](https://unpaywall.org/) has a database of open access versions of articles, which includes content in BHL. Here we count the number of non-BHL DOIs where BHL is the "best" source (an example is [10.1002/fedr.19110090704](http://doi.org/10.1002/fedr.19110090704), best viewed in Chrome or Firefox with the Unpaywall extension). This is a measure of how much BHL is enabling access to paywalled articles, and depends on BHL adding external DOIs to its content.
 |count|
 --|
-|6812|
+|42086|
 
 
 ## Are people citing these new DOIs?
 [OpenCitations](http://opencitations.net) is building a database of citations sourced from CrossRef and elsewhere. Citations are pairs of DOIs. We can count the number of citations for works in BHL with new style DOIs
 |count|
 --|
-|9603|
+|15646|
 
 
 ## Top ten cited DOIs in OpenCitations
 These are the most cited articles with new BHL DOIs.
 |doi | count|
 |--|--|
+|[10.5962/p.325716](https://doi.org/10.5962/p.325716) | 163|
+|[10.5962/p.313819](https://doi.org/10.5962/p.313819) | 115|
+|[10.5962/p.314160](https://doi.org/10.5962/p.314160) | 79|
 |[10.5962/p.258046](https://doi.org/10.5962/p.258046) | 77|
 |[10.5962/p.234849](https://doi.org/10.5962/p.234849) | 75|
 |[10.5962/p.234818](https://doi.org/10.5962/p.234818) | 73|
 |[10.5962/p.168565](https://doi.org/10.5962/p.168565) | 64|
+|[10.5962/p.324722](https://doi.org/10.5962/p.324722) | 63|
 |[10.5962/p.295209](https://doi.org/10.5962/p.295209) | 62|
-|[10.5962/p.185944](https://doi.org/10.5962/p.185944) | 56|
-|[10.5962/p.185316](https://doi.org/10.5962/p.185316) | 55|
-|[10.5962/p.185976](https://doi.org/10.5962/p.185976) | 55|
-|[10.5962/p.184532](https://doi.org/10.5962/p.184532) | 53|
-|[10.5962/p.226819](https://doi.org/10.5962/p.226819) | 53|
+|[10.5962/p.313894](https://doi.org/10.5962/p.313894) | 62|
 
 
-## If the new DOis were a researcher hat would be their _h_-index?
+## If the new DOIs were a researcher what would be their _h_-index?
 > The _h_-index is defined as the maximum value of _h_ such that the given author/journal has published at least _h_ papers that have each been cited at least _h_ times. [Wikipedia](https://en.wikipedia.org/wiki/H-index)
 
-_h_-index: **30**
+_h_-index: **36**
 
 ## How relevant are articles with new-style BHL DOIs?
-If articles with new style DOis are relevant to current researchers then we would expect to see them cited in recently published papers. This table lists the number of citations of new DOI in each decade, showing that recently papers do indeed cite BHL content. Note that citation links are continually updated, so that these newly minted BHL DOIs are enabling citation links to be created between works have been published long before BHL began.
+If articles with new style DOIs are relevant to current researchers then we would expect to see them cited in recently published papers. This table lists the number of citations of new DOI in each decade, showing that recently papers do indeed cite BHL content. Note that citation links are continually updated, so that these newly minted BHL DOIs are enabling citation links to be created between works have been published long before BHL began.
 |decade | count|
 |--|--|
-|2020 | 1959|
-|2010 | 4243|
-|2000 | 720|
-|1990 | 678|
-|1980 | 712|
-|1970 | 543|
-|1960 | 402|
-|1950 | 184|
-|1940 | 94|
-|1930 | 61|
-|1920 | 5|
-|1910 | 2|
+|2020 | 3069|
+|2010 | 6786|
+|2000 | 1509|
+|1990 | 1299|
+|1980 | 1245|
+|1970 | 779|
+|1960 | 497|
+|1950 | 232|
+|1940 | 121|
+|1930 | 82|
+|1920 | 19|
+|1910 | 7|
+|1900 | 1|
 
 

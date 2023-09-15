@@ -96,7 +96,7 @@ echo "# Impact of new-style BHL DOIs \"10.5962/p.\"";
 
 {
 	echo "\n## When does Unpaywall say BHL is best?\n";
-	echo "[Unpaywall](https://unpaywall.org/) has a database of open access versions of articles, which includes content in BHL. Here we count the number of non-BHL DOIs where BHL is the \"best\" source. This is a measure of how much BHL is enabling access to paywalled articles, and depends on BHL adding external DOIs to its content.\n";
+	echo "[Unpaywall](https://unpaywall.org/) has a database of open access versions of articles, which includes content in BHL. Here we count the number of non-BHL DOIs where BHL is the \"best\" source (an example is [10.1002/fedr.19110090704](http://doi.org/10.1002/fedr.19110090704), best viewed in Chrome or Firefox with the Unpaywall extension). This is a measure of how much BHL is enabling access to paywalled articles, and depends on BHL adding external DOIs to its content.\n";
 
 	$sql = "SELECT COUNT(doi) as count FROM doi WHERE doi NOT LIKE '10.5962%' AND unpaywall=1";
 
@@ -134,7 +134,7 @@ echo "# Impact of new-style BHL DOIs \"10.5962/p.\"";
 }
 
 {
-	echo "\n## If the new DOis were a researcher hat would be their _h_-index?\n";
+	echo "\n## If the new DOIs were a researcher what would be their _h_-index?\n";
 	echo "> The _h_-index is defined as the maximum value of _h_ such that the given author/journal has published at least _h_ papers that have each been cited at least _h_ times. [Wikipedia](https://en.wikipedia.org/wiki/H-index)\n";
 
 	$sql = "SELECT cited AS doi, COUNT(cited) as count FROM citation GROUP BY doi ORDER BY count DESC LIMIT 100";
@@ -159,7 +159,7 @@ echo "# Impact of new-style BHL DOIs \"10.5962/p.\"";
 
 {
 	echo "\n## How relevant are articles with new-style BHL DOIs?\n";
-	echo "If articles with new style DOis are relevant to current researchers then we would expect to see them cited in recently published papers. This table lists the number of citations of new DOI in each decade, showing that recently papers do indeed cite BHL content. Note that citation links are continually updated, so that these newly minted BHL DOIs are enabling citation links to be created between works have been published long before BHL began.\n";
+	echo "If articles with new style DOIs are relevant to current researchers then we would expect to see them cited in recently published papers. This table lists the number of citations of new DOI in each decade, showing that recently papers do indeed cite BHL content. Note that citation links are continually updated, so that these newly minted BHL DOIs are enabling citation links to be created between works have been published long before BHL began.\n";
 
 	$sql = "SELECT SUBSTR(creation,1,4)/10 * 10 AS decade, COUNT(cited) as count FROM citation GROUP BY decade ORDER BY decade DESC";
 
