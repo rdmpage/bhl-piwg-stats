@@ -150,3 +150,22 @@ If articles with new style DOIs are relevant to current researchers then we woul
 |1900 | 1|
 
 
+
+## How many missed opportunities for BHL DOIs are there?
+One way to estimate the number of citation opportunities BHL is missing is to look at the lists of literature cited in a journal such as _ZooKeys_ (where we can get literature cited as XML) and to ask questions such as:
+- How many cited works have a link to BHL don't have a DOI?
+- How many cited works pre-date 1923 but don't have a DOI?
+
+References with links to BHL but no DOI are likely to be cases where BHL could add value by adding DOIs. References that pre-date 1923 have a good chance of being in BHL, and hence ideally would have DOIs.
+
+Preliminary data for 824 articles in _ZooKeys_ in 2022-23:
+
+| category | count |
+|--|--|
+| DOI | 20826 |
+| BHL link | 336 |
+| BHL link but no DOI | 336 |
+| citations older than 1923 | 3597 |
+| total number of citations | 37896 |
+
+ 

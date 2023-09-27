@@ -37,7 +37,6 @@ function data_to_table($data)
 	echo "\n";
 }
 
-
 echo "# Impact of new-style BHL DOIs \"10.5962/p.\"";
 
 {
@@ -170,6 +169,17 @@ echo "# Impact of new-style BHL DOIs \"10.5962/p.\"";
 	data_to_table($data);
 	
 	
+}
+
+
+
+{
+	echo "\n## How many missed opportunities for BHL DOIs are there?\n";
+	echo "One way to estimate the number of citation opportunities BHL is missing is to look at the lists of literature cited in a journal such as _ZooKeys_ and to ask questions such as:
+- How many cited works have a link to BHL don't have a DOI?
+- How many cited works pre-date 1923 but don't have a DOI?
+\nReferences with links to BHL but no DOI are likely to be cases where BHL could add value by adding DOIs. References that pre-date 1923 have a good chance of being in BHL, and hence ideally would have DOIs.\nNote that the reason for using _ZooKeys_ is that the content of each article can be downloadsed as XML and hence we can extract the list of literature cited.";
+
 }
 
 
