@@ -161,7 +161,7 @@ References with links to BHL but no DOI are likely to be cases where BHL could a
 Preliminary data for 824 articles in _ZooKeys_ in 2022-23:
 
 | category of citation  | count | percentage |
-|--|--|
+|--|--|--|
 | DOI | 77901 | 47% |
 | BHL link | 1961 | 1% |
 | BHL link but no DOI | 1950 | 1% |
