@@ -59,8 +59,29 @@ function jats_to_csl($xml)
 	
 		// (mixed-citation|nlm-citation)
 	
-		$citation->unstructured = $node->nodeValue;
-		$citation->unstructured = trim($citation->unstructured);
+		//$citation->unstructured = $node->textContent;
+		//$citation->unstructured = trim($citation->unstructured);
+		
+		$terms = array();
+		
+		//$nc = $xpath->query ('(mixed-citation|nlm-citation)/person-group/following-sibling::*', $node);
+		$nc = $xpath->query ('(mixed-citation|nlm-citation)', $node);
+		foreach($nc as $n)
+		{
+			//echo "x";
+			//echo $n->textContent . "\n";
+			
+			$terms[] = $n->textContent;
+		}
+		$citation->unstructured = join(' ', $terms);
+		$citation->unstructured = preg_replace('/\(\s+/', '(', $citation->unstructured);
+		$citation->unstructured = preg_replace('/\s+\)/', ')', $citation->unstructured);
+
+		$citation->unstructured = preg_replace('/\s+\./', '.', $citation->unstructured);
+		$citation->unstructured = preg_replace('/\s+:/', ':', $citation->unstructured);
+		$citation->unstructured = preg_replace('/\s+–\s+/u', '–', $citation->unstructured);
+		
+		$citation->unstructured = preg_replace('/\s\s+/', ' ', $citation->unstructured);		
 
 		// authors------------------------------------------------------------------------
 		$nc = $xpath->query ('(mixed-citation|nlm-citation)/person-group/name', $node);
@@ -248,8 +269,10 @@ function jats_to_csl($xml)
 		}
 		
 		 
-		// clean for debugging
-		unset($citation->unstructured);
+		if (0)
+		{
+			unset($citation->unstructured);
+		}
 		
 		$bibliography[] = $citation;
 	
