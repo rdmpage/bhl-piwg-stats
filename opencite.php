@@ -34,6 +34,7 @@ $file_handle = fopen($filename, "r");
 while (!feof($file_handle)) 
 {
 	$doi = trim(fgets($file_handle));
+	echo "-- $doi\n";
 	
 	$url = 'https://opencitations.net/index/coci/api/v1/citations/' . $doi;
 	
@@ -62,9 +63,6 @@ while (!feof($file_handle))
 		
 			$keys[] = 'creation';
 			$values[] = "'" . $item->creation . "'";
-			
-			
-			
 			
 			echo 'REPLACE INTO citation(' . join(",", $keys) . ') VALUES (' . join(',', $values) . ');' . "\n";
 

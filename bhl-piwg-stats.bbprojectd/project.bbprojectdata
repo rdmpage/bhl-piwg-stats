@@ -4,8 +4,9 @@
 <dict>
 	<key>HierarchyData</key>
 	<array>
-		<string>BB40BF7E-AF41-4056-A94C-A874165DEA77</string>
+		<string>EB5C586B-AA88-44F2-9ECA-8EA355626961</string>
 		<string>798D66FC-2CC8-4435-BF9C-695BAF100BEB</string>
+		<string>D468B2A6-B6DE-4356-B601-7EA36C4C2317</string>
 		<string>E9210CE7-62C6-42A5-B3DD-8966E2879892</string>
 		<string>2DADDE93-A988-42B2-9E50-246C65AC658E</string>
 		<string>BD8E4F8F-9ABB-4C34-9077-1F06B9574454</string>
@@ -148,11 +149,11 @@
 				AAAAAOgBAIAMAgAAAAAAAA==
 				</data>
 				<key>FileURL</key>
-				<string>file:///Users/rpage/Development/bhl-piwg-stats/wikidata.md</string>
+				<string>file:///Users/rpage/Development/bhl-piwg-stats/wikidata/wikidata.md</string>
 				<key>HasSecurityScope</key>
 				<true/>
 				<key>RelativePath</key>
-				<string>./wikidata.md</string>
+				<string>./wikidata/wikidata.md</string>
 				<key>TypeID</key>
 				<string>_CFileLocator</string>
 				<key>Version</key>
@@ -263,54 +264,6 @@
 			<key>UserOverrideItemName</key>
 			<true/>
 		</dict>
-		<key>BB40BF7E-AF41-4056-A94C-A874165DEA77</key>
-		<dict>
-			<key>ItemData</key>
-			<dict>
-				<key>BookmarkData</key>
-				<data>
-				Ym9va+gCAAAAAAQQMAAAAKPnarx8kvVYNzEhDxn8TLrT
-				0gIvCCT6GrUvnRvO0YHw5AEAAAQAAAADAwAAAAgAKAUA
-				AAABAQAAVXNlcnMAAAAFAAAAAQEAAHJwYWdlAAAACwAA
-				AAEBAABEZXZlbG9wbWVudAAOAAAAAQEAAGJobC1waXdn
-				LXN0YXRzAAAGAAAAAQEAAGdvLnBocAAAFAAAAAEGAAAQ
-				AAAAIAAAADAAAABEAAAAXAAAAAgAAAAEAwAAhFwAAAAA
-				AAAIAAAABAMAAJbGAwAAAAAACAAAAAQDAABZKSUAAAAA
-				AAgAAAAEAwAApSSsBgAAAAAIAAAABAMAACQlrAYAAAAA
-				FAAAAAEGAACIAAAAmAAAAKgAAAC4AAAAyAAAAAgAAAAA
-				BAAAQcVZoxXiRmUYAAAAAQIAAAEAAAAAAAAADwAAAAAA
-				AAAAAAAAAAAAAAgAAAAEAwAAAwAAAAAAAAAEAAAAAwMA
-				APUBAAAIAAAAAQkAAGZpbGU6Ly8vDAAAAAEBAABNYWNp
-				bnRvc2ggSEQIAAAABAMAAACQgpbnAAAACAAAAAAEAABB
-				xQd6oAAAACQAAAABAQAARUVEQkM0OTUtREY1Mi00NTZB
-				LUI0MzEtRkI2MDdCRjA0QUQxGAAAAAECAACBAAAAAQAA
-				AO8TAAABAAAAAAAAAAAAAAABAAAAAQEAAC8AAAAAAAAA
-				AQUAAMwAAAD+////AQAAAAAAAAAQAAAABBAAAGwAAAAA
-				AAAABRAAANgAAAAAAAAAEBAAAAQBAAAAAAAAQBAAAPQA
-				AAAAAAAAAiAAANABAAAAAAAABSAAAEABAAAAAAAAECAA
-				AFABAAAAAAAAESAAAIQBAAAAAAAAEiAAAGQBAAAAAAAA
-				EyAAAHQBAAAAAAAAICAAALABAAAAAAAAMCAAANwBAAAA
-				AAAAAcAAACQBAAAAAAAAEcAAACAAAAAAAAAAEsAAADQB
-				AAAAAAAAENAAAAQAAAAAAAAA
-				</data>
-				<key>FileURL</key>
-				<string>file:///Users/rpage/Development/bhl-piwg-stats/go.php</string>
-				<key>HasSecurityScope</key>
-				<true/>
-				<key>RelativePath</key>
-				<string>./go.php</string>
-				<key>TypeID</key>
-				<string>_CFileLocator</string>
-				<key>Version</key>
-				<integer>1</integer>
-			</dict>
-			<key>ItemName</key>
-			<string>go.php</string>
-			<key>ItemType</key>
-			<string>FileReference</string>
-			<key>UserOverrideItemName</key>
-			<true/>
-		</dict>
 		<key>BD8E4F8F-9ABB-4C34-9077-1F06B9574454</key>
 		<dict>
 			<key>ItemData</key>
@@ -411,6 +364,54 @@
 			<key>UserOverrideItemName</key>
 			<true/>
 		</dict>
+		<key>D468B2A6-B6DE-4356-B601-7EA36C4C2317</key>
+		<dict>
+			<key>ItemData</key>
+			<dict>
+				<key>BookmarkData</key>
+				<data>
+				Ym9va+gCAAAAAAQQMAAAAKPnarx8kvVYNzEhDxn8TLrT
+				0gIvCCT6GrUvnRvO0YHw5AEAAAQAAAADAwAAAAgAKAUA
+				AAABAQAAVXNlcnMAAAAFAAAAAQEAAHJwYWdlAAAACwAA
+				AAEBAABEZXZlbG9wbWVudAAOAAAAAQEAAGJobC1waXdn
+				LXN0YXRzAAAGAAAAAQEAAGdvLnBocAAAFAAAAAEGAAAQ
+				AAAAIAAAADAAAABEAAAAXAAAAAgAAAAEAwAAhFwAAAAA
+				AAAIAAAABAMAAJbGAwAAAAAACAAAAAQDAABZKSUAAAAA
+				AAgAAAAEAwAApSSsBgAAAAAIAAAABAMAACQlrAYAAAAA
+				FAAAAAEGAACIAAAAmAAAAKgAAAC4AAAAyAAAAAgAAAAA
+				BAAAQcVZoxXiRmUYAAAAAQIAAAEAAAAAAAAADwAAAAAA
+				AAAAAAAAAAAAAAgAAAAEAwAAAwAAAAAAAAAEAAAAAwMA
+				APUBAAAIAAAAAQkAAGZpbGU6Ly8vDAAAAAEBAABNYWNp
+				bnRvc2ggSEQIAAAABAMAAACQgpbnAAAACAAAAAAEAABB
+				xQd6oAAAACQAAAABAQAARUVEQkM0OTUtREY1Mi00NTZB
+				LUI0MzEtRkI2MDdCRjA0QUQxGAAAAAECAACBAAAAAQAA
+				AO8TAAABAAAAAAAAAAAAAAABAAAAAQEAAC8AAAAAAAAA
+				AQUAAMwAAAD+////AQAAAAAAAAAQAAAABBAAAGwAAAAA
+				AAAABRAAANgAAAAAAAAAEBAAAAQBAAAAAAAAQBAAAPQA
+				AAAAAAAAAiAAANABAAAAAAAABSAAAEABAAAAAAAAECAA
+				AFABAAAAAAAAESAAAIQBAAAAAAAAEiAAAGQBAAAAAAAA
+				EyAAAHQBAAAAAAAAICAAALABAAAAAAAAMCAAANwBAAAA
+				AAAAAcAAACQBAAAAAAAAEcAAACAAAAAAAAAAEsAAADQB
+				AAAAAAAAENAAAAQAAAAAAAAA
+				</data>
+				<key>FileURL</key>
+				<string>file:///Users/rpage/Development/bhl-piwg-stats/go.php</string>
+				<key>HasSecurityScope</key>
+				<true/>
+				<key>RelativePath</key>
+				<string>./go.php</string>
+				<key>TypeID</key>
+				<string>_CFileLocator</string>
+				<key>Version</key>
+				<integer>1</integer>
+			</dict>
+			<key>ItemName</key>
+			<string>go.php</string>
+			<key>ItemType</key>
+			<string>FileReference</string>
+			<key>UserOverrideItemName</key>
+			<true/>
+		</dict>
 		<key>E9210CE7-62C6-42A5-B3DD-8966E2879892</key>
 		<dict>
 			<key>ItemData</key>
@@ -458,6 +459,54 @@
 			<string>FileReference</string>
 			<key>UserOverrideItemName</key>
 			<true/>
+		</dict>
+		<key>EB5C586B-AA88-44F2-9ECA-8EA355626961</key>
+		<dict>
+			<key>ItemData</key>
+			<dict>
+				<key>BookmarkData</key>
+				<data>
+				Ym9vaygDAAAAAAQQMAAAAABu0hEMR71a3vrli9apUDoY
+				/iHOAvmJ34PECTezfdqMGAIAAAQAAAADAwAAAAgAKAUA
+				AAABAQAAVXNlcnMAAAAFAAAAAQEAAHJwYWdlAAAACwAA
+				AAEBAABEZXZlbG9wbWVudAAOAAAAAQEAAGJobC1waXdn
+				LXN0YXRzAAAKAAAAAQEAAC5naXRpZ25vcmUAABQAAAAB
+				BgAAEAAAACAAAAAwAAAARAAAAFwAAAAIAAAABAMAAIRc
+				AAAAAAAACAAAAAQDAACWxgMAAAAAAAgAAAAEAwAAWSkl
+				AAAAAAAIAAAABAMAAKUkrAYAAAAACAAAAAQDAAC3VKwG
+				AAAAABQAAAABBgAAjAAAAJwAAACsAAAAvAAAAMwAAAAI
+				AAAAAAQAAEHFWbMkKWAoGAAAAAECAAABAAAAAAAAAA8A
+				AAAAAAAAAAAAAAAAAAAIAAAABAMAAAMAAAAAAAAABAAA
+				AAMDAAD1AQAACAAAAAEJAABmaWxlOi8vLwwAAAABAQAA
+				TWFjaW50b3NoIEhECAAAAAQDAAAAkIKW5wAAAAgAAAAA
+				BAAAQcXTWx6AAAAkAAAAAQEAAEVFREJDNDk1LURGNTIt
+				NDU2QS1CNDMxLUZCNjA3QkYwNEFEMRgAAAABAgAAgQAA
+				AAEAAADvEwAAAQAAAAAAAAAAAAAAAQAAAAEBAAAvAAAA
+				AAAAAAEFAAAaAAAAAQEAAE5TVVJMRG9jdW1lbnRJZGVu
+				dGlmaWVyS2V5AAAEAAAAAwMAAC3bBQDYAAAA/v///wEA
+				AAAAAAAAEQAAAAQQAABwAAAAAAAAAAUQAADcAAAAAAAA
+				ABAQAAAIAQAAAAAAAEAQAAD4AAAAAAAAAAIgAADUAQAA
+				AAAAAAUgAABEAQAAAAAAABAgAABUAQAAAAAAABEgAACI
+				AQAAAAAAABIgAABoAQAAAAAAABMgAAB4AQAAAAAAACAg
+				AAC0AQAAAAAAADAgAADgAQAAAAAAAAHAAAAoAQAAAAAA
+				ABHAAAAgAAAAAAAAABLAAAA4AQAAAAAAABDQAAAEAAAA
+				AAAAAOgBAIAMAgAAAAAAAA==
+				</data>
+				<key>FileURL</key>
+				<string>file:///Users/rpage/Development/bhl-piwg-stats/.gitignore</string>
+				<key>HasSecurityScope</key>
+				<true/>
+				<key>RelativePath</key>
+				<string>./.gitignore</string>
+				<key>TypeID</key>
+				<string>_CFileLocator</string>
+				<key>Version</key>
+				<integer>1</integer>
+			</dict>
+			<key>ItemName</key>
+			<string>.gitignore</string>
+			<key>ItemType</key>
+			<string>FileReference</string>
 		</dict>
 	</dict>
 	<key>com.barebones.DocumentFormatVersion</key>

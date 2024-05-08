@@ -134,7 +134,7 @@ echo "# Impact of new-style BHL DOIs \"10.5962/p.\"";
 
 {
 	echo "\n## If the new DOIs were a researcher what would be their _h_-index?\n";
-	echo "> The _h_-index is defined as the maximum value of _h_ such that the given author/journal has published at least _h_ papers that have each been cited at least _h_ times. [Wikipedia](https://en.wikipedia.org/wiki/H-index)\n";
+	echo "> The _h_-index is defined as the maximum value of _h_ such that the given author/journal has published at least _h_ papers that have each been cited at least _h_ times. [Wikipedia](https://en.wikipedia.org/wiki/H-index). See Winker K, Withrow JJ (2013) Small collections make a big impact. Nature 493(7433):480–480. [https://doi.org/10.1038/493480b](https://doi.org/10.1038/493480b)\n";
 
 	$sql = "SELECT cited AS doi, COUNT(cited) as count FROM citation GROUP BY doi ORDER BY count DESC LIMIT 100";
 

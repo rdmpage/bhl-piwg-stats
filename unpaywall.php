@@ -108,6 +108,8 @@ $file_handle = fopen($filename, "r");
 while (!feof($file_handle)) 
 {
 	$doi = trim(fgets($file_handle));
+	
+	echo "-- $doi\n";
 
 	doi_to_oa($doi);
 	
