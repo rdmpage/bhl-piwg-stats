@@ -160,7 +160,7 @@ echo "# Impact of new-style BHL DOIs \"10.5962/p.\"";
 	echo "\n## How relevant are articles with new-style BHL DOIs?\n";
 	echo "If articles with new style DOIs are relevant to current researchers then we would expect to see them cited in recently published papers. This table lists the number of citations of new DOI in each decade, showing that recently papers do indeed cite BHL content. Note that citation links are continually updated, so that these newly minted BHL DOIs are enabling citation links to be created between works have been published long before BHL began.\n";
 
-	$sql = "SELECT SUBSTR(creation,1,4)/10 * 10 AS decade, COUNT(cited) as count FROM citation GROUP BY decade ORDER BY decade DESC";
+	$sql = "SELECT SUBSTR(creation,1,4)/10 * 10 AS decade, COUNT(cited) as count FROM citation WHERE creation != '' GROUP BY decade ORDER BY decade DESC";
 
 	$data = do_query($sql);
 
@@ -172,7 +172,7 @@ echo "# Impact of new-style BHL DOIs \"10.5962/p.\"";
 }
 
 
-
+if (0)
 {
 	echo "\n## How many missed opportunities for BHL DOIs are there?\n";
 	echo "One way to estimate the number of citation opportunities BHL is missing is to look at the lists of literature cited in a journal such as _ZooKeys_ and to ask questions such as:
