@@ -75,7 +75,7 @@ echo "# Impact of new-style BHL DOIs \"10.5962/p.\"";
 
 	// print_r($data);
 
-	data_to_table($data);
+	data_to_table($data);	
 }
 
 {
@@ -182,6 +182,48 @@ if (0)
 
 }
 
+
+if (1)
+{
+	// create data dumps for further analysis
+	
+	// PIWG DOIs
+	$sql = "SELECT doi FROM doi WHERE doi LIKE '10.5962/p.%'";
+	
+	$dois = array();
+	
+	$data = do_query($sql);
+	
+	
+	foreach ($data as $row)
+	{
+		$dois[] = $row->DOI;
+	}
+	
+	asort($dois);
+	
+	file_put_contents('pdoi.txt' , join("\n", $dois));
+	
+	// Non BHL DOIs
+	
+	$sql = "SELECT doi FROM doi WHERE doi NOT LIKE '10.5962/%'";
+	
+	$dois = array();
+	
+	$data = do_query($sql);
+	
+	foreach ($data as $row)
+	{
+		$dois[] = $row->DOI;
+	}
+	
+	asort($dois);
+	
+	file_put_contents('nonbhldoi.txt' , join("\n", $dois));
+	
+
+
+}
 
 
 
