@@ -37,7 +37,10 @@ function data_to_table($data)
 	echo "\n";
 }
 
-echo "# Impact of new-style BHL DOIs \"10.5962/p.\"";
+echo "# Impact of new-style BHL DOIs \"10.5962/p.\"\n";
+
+
+echo "Script run " . date("Y-m-d", time()) . "\n";
 
 {
 	echo "\n## DOI prefixes in BHL\n";
