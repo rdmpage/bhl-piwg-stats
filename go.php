@@ -2,6 +2,7 @@
 
 require_once(dirname(__FILE__) . '/utils.php');
 
+//----------------------------------------------------------------------------------------
 function data_to_table($data)
 {
 	$header = array();
@@ -36,6 +37,9 @@ function data_to_table($data)
 	
 	echo "\n";
 }
+
+//----------------------------------------------------------------------------------------
+
 
 echo "# Impact of new-style BHL DOIs \"10.5962/p.\"\n";
 
