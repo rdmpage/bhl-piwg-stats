@@ -190,7 +190,7 @@ if (0)
 }
 
 
-if (1)
+if (0)
 {
 	// create data dumps for further analysis
 	

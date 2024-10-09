@@ -1,5 +1,7 @@
 <?php
 
+// For a list of DOIs, count the total number of citations
+
 error_reporting(E_ALL);
 
 //----------------------------------------------------------------------------------------
@@ -24,11 +26,11 @@ function get($url)
 
 //----------------------------------------------------------------------------------------
 
-$filename = 'pdoi.txt';
-//$filename = 'muelleria_doi.txt';
-
+$filename = 'muelleria_doi.txt';
 
 $file = @fopen($filename, "r") or die("couldn't open $filename");
+
+$citation_count = 0;
 
 $row_count = 1;
 
@@ -36,7 +38,7 @@ $file_handle = fopen($filename, "r");
 while (!feof($file_handle)) 
 {
 	$doi = trim(fgets($file_handle));
-	echo "-- $doi\n";
+	echo "$doi";
 	
 	$url = 'https://opencitations.net/index/coci/api/v1/citations/' . $doi;
 	
@@ -44,10 +46,13 @@ while (!feof($file_handle))
 	$obj = json_decode($json);
 	if ($obj)
 	{
-		//print_r($obj);
-	
 		foreach ($obj as $item)
 		{
+			$citation_count++;
+			
+			echo " " . $item->citing;
+		
+			/*
 			$keys = array();
 			$values = array();
 			
@@ -67,22 +72,26 @@ while (!feof($file_handle))
 			$values[] = "'" . $item->creation . "'";
 			
 			echo 'REPLACE INTO citation(' . join(",", $keys) . ') VALUES (' . join(',', $values) . ');' . "\n";
-
+			*/
 		
 		}
 	
 	}
 	
+	echo "\n";
+	
 	// Give server a break every 10 items
 	if (($row_count++ % 5) == 0)
 	{
 		$rand = rand(1000000, 3000000);
-		echo "\n-- ...sleeping for " . round(($rand / 1000000),2) . ' seconds' . "\n\n";
+		echo "\n ...sleeping for " . round(($rand / 1000000),2) . ' seconds' . "\n\n";
 		usleep($rand);
 	}
 	
 
 }
+
+echo "Total number of citations: $citation_count\n";
 
 
 ?>
