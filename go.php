@@ -43,6 +43,7 @@ function data_to_pie_chart($data, $title, $limit = 10)
 {
 	$count = 0;
 	
+	echo "```mermaid\n";
 	echo "pie title $title\n";
 	
 	foreach ($data as $row)
@@ -59,6 +60,7 @@ function data_to_pie_chart($data, $title, $limit = 10)
 		if ($count ==  $limit) break;
 	}
 	echo "\n";
+	echo "```\n";
 }
 
 
@@ -257,7 +259,7 @@ echo "Script run " . date("Y-m-d", time()) . "\n";
 }
 
 {
-	echo "\n## Citations across all BHL DOIs\n";
+	echo "\n## Citations of all BHL DOIs\n";
 		
 	$sql = "SELECT cited AS doi, COUNT(cited) as count 
 	FROM citation  GROUP BY cited";

@@ -82,6 +82,7 @@ Typically different publishers have their own unique DOI prefix, but this can ch
 |10.1146 | 1|
 |10.1016 | 1|
 
+```mermaid
 pie title Top ten DOI prefixes in BHL
    "10.5962":186651
    "10.2307":13466
@@ -94,6 +95,7 @@ pie title Top ten DOI prefixes in BHL
    "10.1093":2153
    "10.1007":2007
 
+```
 
 ## Non BHL DOIs in BHL
 DOIs minted by other organisations, may be commercial publishers, repositories, or BHL members.
@@ -103,11 +105,13 @@ DOIs minted by other organisations, may be commercial publishers, repositories, 
 
 
 ## Types of BHL DOIs
+```mermaid
 pie title Different types of BHl DOI
    "title":123185
    "part":12517
    "piwg":50461
 
+```
 
 ## New style BHL DOIs
 Total number of DOIs minted as part of PIWG activities.
@@ -182,16 +186,18 @@ If articles with new style DOIs are relevant to current researchers then we woul
 |1890 | 3|
 
 
-## Citations across all BHL DOIs
+## Citations of all BHL DOIs
 |type | count|
 |--|--|
 |title | 265661|
 |part | 44421|
 |piwg | 61661|
 
+```mermaid
 pie title Citations of different types of BHL DOI
    "title":265661
    "part":44421
    "piwg":61661
 
+```
 
