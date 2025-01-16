@@ -105,7 +105,7 @@ DOIs minted by other organisations, may be commercial publishers, repositories, 
 
 
 ## Types of BHL DOIs
-```mermaid
+Previously BHL has minted DOIs for "title" (e.g., monographs) and "parts" (e.g. articles). The PIWG is minting DOIs primarily for articles. The charts below sumamrise how many DOIs of the different sorts have been minted.```mermaid
 pie title Different types of BHl DOI
    "title":123185
    "part":12517
