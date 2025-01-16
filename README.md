@@ -156,16 +156,16 @@ xychart-beta
 These are the most cited articles with new BHL DOIs.
 |doi | count|
 |--|--|
-|[10.5962/p.325716](https://doi.org/10.5962/p.325716) | 562|
-|[10.5962/p.360338](https://doi.org/10.5962/p.360338) | 263|
-|[10.5962/p.313819](https://doi.org/10.5962/p.313819) | 247|
-|[10.5962/p.234849](https://doi.org/10.5962/p.234849) | 220|
-|[10.5962/p.324722](https://doi.org/10.5962/p.324722) | 219|
-|[10.5962/p.234818](https://doi.org/10.5962/p.234818) | 202|
-|[10.5962/p.185864](https://doi.org/10.5962/p.185864) | 183|
-|[10.5962/p.185944](https://doi.org/10.5962/p.185944) | 182|
-|[10.5962/p.185316](https://doi.org/10.5962/p.185316) | 179|
-|[10.5962/p.258046](https://doi.org/10.5962/p.258046) | 171|
+|[10.5962/p.325716](https://opencitations.net/index/search?text=10.5962%2Fp.325716&rule=citeddoi) | 562|
+|[10.5962/p.360338](https://opencitations.net/index/search?text=10.5962%2Fp.360338&rule=citeddoi) | 263|
+|[10.5962/p.313819](https://opencitations.net/index/search?text=10.5962%2Fp.313819&rule=citeddoi) | 247|
+|[10.5962/p.234849](https://opencitations.net/index/search?text=10.5962%2Fp.234849&rule=citeddoi) | 220|
+|[10.5962/p.324722](https://opencitations.net/index/search?text=10.5962%2Fp.324722&rule=citeddoi) | 219|
+|[10.5962/p.234818](https://opencitations.net/index/search?text=10.5962%2Fp.234818&rule=citeddoi) | 202|
+|[10.5962/p.185864](https://opencitations.net/index/search?text=10.5962%2Fp.185864&rule=citeddoi) | 183|
+|[10.5962/p.185944](https://opencitations.net/index/search?text=10.5962%2Fp.185944&rule=citeddoi) | 182|
+|[10.5962/p.185316](https://opencitations.net/index/search?text=10.5962%2Fp.185316&rule=citeddoi) | 179|
+|[10.5962/p.258046](https://opencitations.net/index/search?text=10.5962%2Fp.258046&rule=citeddoi) | 171|
 
 
 ## If the new DOIs were a researcher what would be their _h_-index?
@@ -192,6 +192,13 @@ If articles with new style DOIs are relevant to current researchers then we woul
 |1900 | 22|
 |1890 | 3|
 
+```mermaid
+xychart-beta
+   title "Numbers of papers published each year that cite new-style BHL DOIs"
+    x-axis [2020,2010,2000,1990,1980,1970,1960,1950,1940,1930]
+    y-axis "count" 0-->19730
+    bar [10116,19730,13255,6633,5052,2886,1793,842,451,398]
+```
 
 ## Citations of all BHL DOIs
 |type | count|
@@ -207,4 +214,20 @@ pie title Citations of different types of BHL DOI
    "piwg":61661
 
 ```
+
+## Top ten cited BHL DOIs (of any kind)
+These are the most cited articles with BHL DOIs for titles, parts, or segments
+|doi | count|
+|--|--|
+|[10.5962/bhl.title.82303](https://opencitations.net/index/search?text=10.5962%2Fbhl.title.82303&rule=citeddoi) | 3769|
+|[10.5962/bhl.title.5851](https://opencitations.net/index/search?text=10.5962%2Fbhl.title.5851&rule=citeddoi) | 2850|
+|[10.5962/bhl.title.542](https://opencitations.net/index/search?text=10.5962%2Fbhl.title.542&rule=citeddoi) | 2392|
+|[10.1017/cbo9780511703829](https://opencitations.net/index/search?text=10.1017%2Fcbo9780511703829&rule=citeddoi) | 2367|
+|[10.5962/bhl.title.6966](https://opencitations.net/index/search?text=10.5962%2Fbhl.title.6966&rule=citeddoi) | 1673|
+|[10.5962/bhl.title.11332](https://opencitations.net/index/search?text=10.5962%2Fbhl.title.11332&rule=citeddoi) | 1593|
+|[10.5962/bhl.title.8281](https://opencitations.net/index/search?text=10.5962%2Fbhl.title.8281&rule=citeddoi) | 1412|
+|[10.5962/bhl.title.56234](https://opencitations.net/index/search?text=10.5962%2Fbhl.title.56234&rule=citeddoi) | 1409|
+|[10.5962/bhl.title.4489](https://opencitations.net/index/search?text=10.5962%2Fbhl.title.4489&rule=citeddoi) | 1379|
+|[10.5962/bhl.title.4108](https://opencitations.net/index/search?text=10.5962%2Fbhl.title.4108&rule=citeddoi) | 1231|
+
 

@@ -26,13 +26,12 @@ function data_to_table($data)
 		{
 			if ($k == "doi")
 			{
-				$v = "[" . $v . "](https://doi.org/" . $v . ")";
+				$v = "[" . $v . "](https://opencitations.net/index/search?text=" . urlencode($v) . "&rule=citeddoi)";
 			}
 			$row[] = $v;
 		}
 	
 		echo "|" . join(" | ", $row) . "|\n";
-
 	}
 	
 	echo "\n";
@@ -143,6 +142,9 @@ echo "Script run " . date("Y-m-d", time()) . "\n";
 
 {
 	echo "\n## Types of BHL DOIs\n";
+	
+	echo "Previously BHL has minted DOIs for \"title\" (e.g., monographs) and \"parts\" (e.g. articles). ";
+	echo "The PIWG is minting DOIs primarily for articles. The charts below sumamrise how many DOIs of the different sorts have been minted.";
 	
 	$sql = "SELECT DOI as doi FROM doi WHERE doi LIKE '10.5962/%'";
 
@@ -299,6 +301,7 @@ echo "Script run " . date("Y-m-d", time()) . "\n";
 
 	data_to_table($data);
 	
+	data_to_barchart($data, "Numbers of papers published each year that cite new-style BHL DOIs");
 	
 }
 
@@ -345,6 +348,21 @@ echo "Script run " . date("Y-m-d", time()) . "\n";
 	data_to_table($pie);
 	
 	data_to_pie_chart($pie, "Citations of different types of BHL DOI");
+}
+
+{
+	echo "\n## Top ten cited BHL DOIs (of any kind)\n";
+	echo "These are the most cited articles with BHL DOIs for titles, parts, or segments\n";
+
+	$sql = "SELECT cited AS doi, COUNT(cited) as count 
+	FROM citation 
+	GROUP BY doi ORDER BY count DESC LIMIT 10";
+
+	$data = do_query($sql);
+
+	// print_r($data);
+
+	data_to_table($data);
 }
 
 
