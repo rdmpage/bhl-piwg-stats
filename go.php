@@ -39,6 +39,47 @@ function data_to_table($data)
 }
 
 //----------------------------------------------------------------------------------------
+function data_to_barchart($data, $title, $limit = 10)
+{
+	$header = array();
+	foreach ($data[0] as $k => $v)
+	{
+		$header[] = $k;
+	}
+
+
+	$x = array();
+	$y = array();
+	
+	$maxy = 0;
+	$count = 0;
+	foreach ($data as $row)
+	{
+		$values = array();
+		foreach ($row as $k => $v)
+		{
+			$values[] = $v;
+		}
+		
+		$x[] = $values[0];
+		$y [] = $values[1];
+		
+		$maxy = max($maxy, $values[1]);
+		$count++;
+		if ($count ==  $limit) break;
+	}
+	
+	echo "```mermaid\n";
+	echo "xychart-beta\n";
+	echo "   title \"$title\"\n";
+	echo "    x-axis [" . join(",", $x) . "]\n";
+	echo "    y-axis \"" . $header[1] . "\" 0-->$maxy\n";
+	echo "    bar [" . join(",", $y) . "]\n";
+	echo "```\n";
+
+}
+
+//----------------------------------------------------------------------------------------
 function data_to_pie_chart($data, $title, $limit = 10)
 {
 	$count = 0;
@@ -168,6 +209,9 @@ echo "Script run " . date("Y-m-d", time()) . "\n";
 	// print_r($data);
 
 	data_to_table($data);
+	
+	data_to_barchart($data, "New style DOIs minted each year");
+
 }
 
 

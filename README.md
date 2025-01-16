@@ -130,6 +130,13 @@ Activity for each year.
 |2023 | 7390|
 |2024 | 26934|
 
+```mermaid
+xychart-beta
+   title "New style DOIs minted each year"
+    x-axis [2020,2021,2022,2023,2024]
+    y-axis "count" 0-->26934
+    bar [46,11129,4962,7390,26934]
+```
 
 ## When does Unpaywall say BHL is best?
 [Unpaywall](https://unpaywall.org/) has a database of open access versions of articles, which includes content in BHL. Here we count the number of non-BHL DOIs where BHL is the "best" source (an example is [10.1002/fedr.19110090704](http://doi.org/10.1002/fedr.19110090704), best viewed in Chrome or Firefox with the Unpaywall extension). This is a measure of how much BHL is enabling access to paywalled articles, and depends on BHL adding external DOIs to its content.
