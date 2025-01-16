@@ -2,6 +2,8 @@
 
 error_reporting(E_ALL);
 
+require_once(dirname(__FILE__) . '/utils.php');
+
 //----------------------------------------------------------------------------------------
 function get($url)
 {
@@ -80,14 +82,15 @@ function doi_to_oa($doi)
 			{
 				if (preg_match('/biodiversitylibrary.org/', $obj->best_oa_location[0]->url))
 				{
-					echo 'UPDATE doi SET unpaywall=1 WHERE doi="' . $doi . '";' . "\n";			
+					//echo 'UPDATE doi SET unpaywall=1 WHERE doi="' . $doi . '";' . "\n";			
+					echo 'REPLACE INTO unpaywall(doi,unpaywall) VALUES("' . $doi . '",1);' . "\n";		
 				}
 			}
 			else
 			{
 				if (preg_match('/biodiversitylibrary.org/', $obj->best_oa_location->url))
 				{
-					echo 'UPDATE doi SET unpaywall=1 WHERE doi="' . $doi . '";' . "\n";			
+					echo 'REPLACE INTO unpaywall(doi,unpaywall) VALUES("' . $doi . '",1);' . "\n";		
 				}
 			}			
 		}
@@ -110,8 +113,48 @@ while (!feof($file_handle))
 	$doi = trim(fgets($file_handle));
 	
 	echo "-- $doi\n";
+	
+	$have_doi = false;
+	$go = true;
+	
+	// 1. Do we have this already?
+	
+	$sql = 'SELECT * from unpaywall WHERE doi="' . $doi . '" LIMIT 1';
+	
+	$data = do_query($sql);
+	
+	if (count($data) == 1)
+	{
+		// yes...
+		$have_doi = true;
+		
+		echo "-- have $doi\n";
+		
+		if ($data[0]->unpaywall == 1)
+		{
+			// ... and BHL is best hit, so we don't need to do anything
+			$go = false; // we already have this and BHL is the best destination
+			
+			echo "-- BHL is best\n";
+		}
+		else
+		{
+			echo "-- BHL not best\n";
+		}
+	}	
+	
+	if ($go)
+	{
+		if (!$have_doi)
+		{
+			// update database with DOI and set to 0 by default
+			echo "-- don't have $doi\n";
+			echo 'REPLACE INTO unpaywall(doi,unpaywall) VALUES("' . $doi . '",0);' . "\n";
+		}	
 
-	doi_to_oa($doi);
+		echo "-- query Unpaywall\n";
+		doi_to_oa($doi);
+	}
 	
 	// Give server a break every 10 items
 	if (($row_count++ % 5) == 0)

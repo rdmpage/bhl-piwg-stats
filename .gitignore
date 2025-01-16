@@ -6,3 +6,7 @@
 /junk/
 
 /wikidata/
+piwg.db-shm
+piwg.db-wal
+
+*.sql

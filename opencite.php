@@ -26,6 +26,8 @@ function get($url)
 
 $filename = 'pdoi.txt';
 //$filename = 'muelleria_doi.txt';
+//$filename = 'title.txt';
+//$filename = 'part.txt';
 
 
 $file = @fopen($filename, "r") or die("couldn't open $filename");

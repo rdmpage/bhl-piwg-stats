@@ -14,13 +14,12 @@ CREATE TABLE "doi" (
   , EntityID INTEGER
   , DOI TEXT
   , CreationDate TEXT
-  , unpaywall INTEGER
 );
 
 CREATE INDEX "doi_doi" ON doi(DOI COLLATE BINARY ASC);
 ```
 
-Typically this schema will be created by simply importing the TSV file, but you then have to add the `unpaywall` column.
+Typically this schema will be created by simply importing the TSV file.
 
 ## OpenCitation
 
@@ -38,6 +37,24 @@ CREATE TABLE "citation" (
 CREATE INDEX cited ON citation(cited COLLATE BINARY ASC);
 ```
 
+More recently we run this script for other BHL DOIs, e.g. `SELECT doi FROM doi WHERE doi LIKE '10.5962/bhl.title%’` and `SELECT doi FROM doi WHERE doi LIKE '10.5962/bhl.part%’`.
+
+This part of the analysis is time-consuming as we query for every DOI. There is no obvious way to see if anything has changed since the last time the script is run.
+
+
 ## Unpaywall
 
-The SQL query `SELECT doi FROM doi WHERE doi NOT LIKE '10.5962/%'` (which is run automatically by `go.php`) finds all DOIs in BHL that aren’t minted by BHL. `go.php` writes these to `nonbhldoi.txt`. The script `unpaywall.php` will read this file and determine whether BHL is the preferred destination for each DOI. The results are written as SQL statements.
+The SQL query `SELECT doi FROM doi WHERE doi NOT LIKE '10.5962/%'` (which is run automatically by `go.php`) finds all DOIs in BHL that aren’t minted by BHL. `go.php` writes these to `nonbhldoi.txt`. The script `unpaywall.php` will read this file and determine whether BHL is the preferred destination for each DOI. The results are written as SQL statements which can be loaded into the database.
+
+The unpaywall table lists DOIs and an integer flag indicating whether or not BHL is the preferred destination (1) or not (0) for that DOI.
+
+```
+CREATE TABLE unpaywall (
+    doi TEXT PRIMARY KEY
+  , unpaywall INTEGER DEFAULT(0)
+);
+
+CREATE INDEX "unpaywall_unpaywall_idx" ON unpaywall(unpaywall ASC);
+```
+
+When processing the list of DOIs we first query the database to see if we know that the DOI is a preferred destination. Only if it isn’t (or we haven’t seen this DOI before) do we call Unpaywall directly.

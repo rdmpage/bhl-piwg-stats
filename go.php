@@ -39,6 +39,30 @@ function data_to_table($data)
 }
 
 //----------------------------------------------------------------------------------------
+function data_to_pie_chart($data, $title, $limit = 10)
+{
+	$count = 0;
+	
+	echo "pie title $title\n";
+	
+	foreach ($data as $row)
+	{
+		$values = array();
+		foreach ($row as $k => $v)
+		{
+			$values[] = $v;
+		}
+		
+		echo "   \"" . $values[0] . "\":" . $values[1] . "\n";
+		
+		$count++;
+		if ($count ==  $limit) break;
+	}
+	echo "\n";
+}
+
+
+//----------------------------------------------------------------------------------------
 
 
 echo "# Impact of new-style BHL DOIs \"10.5962/p.\"\n";
@@ -57,6 +81,8 @@ echo "Script run " . date("Y-m-d", time()) . "\n";
 	// print_r($data);
 
 	data_to_table($data);
+	
+	data_to_pie_chart($data, "Top ten DOI prefixes in BHL");
 }
 
 {
@@ -71,6 +97,49 @@ echo "Script run " . date("Y-m-d", time()) . "\n";
 
 	data_to_table($data);
 }
+
+{
+	echo "\n## Types of BHL DOIs\n";
+	
+	$sql = "SELECT DOI as doi FROM doi WHERE doi LIKE '10.5962/%'";
+
+	$data = do_query($sql);
+	
+	$title = new stdclass;
+	$title->type = 'title';
+	$title->count = 0;
+
+	$part = new stdclass;
+	$part->type = 'part';
+	$part->count = 0;
+
+	$piwg = new stdclass;
+	$piwg->type = 'piwg';
+	$piwg->count = 0;
+
+	foreach ($data as $row)
+	{
+		if (preg_match('/title/', $row->doi))
+		{
+			$title->count++;
+		}
+
+		if (preg_match('/part/', $row->doi))
+		{
+			$part->count++;
+		}
+
+		if (preg_match('/p\./', $row->doi))
+		{
+			$piwg->count++;
+		}
+	}
+	
+	$pie = array($title,$part,$piwg);
+	
+	data_to_pie_chart($pie, "Different types of BHl DOI");
+}
+
 
 {
 	echo "\n## New style BHL DOIs\n";
@@ -104,7 +173,7 @@ echo "Script run " . date("Y-m-d", time()) . "\n";
 	echo "\n## When does Unpaywall say BHL is best?\n";
 	echo "[Unpaywall](https://unpaywall.org/) has a database of open access versions of articles, which includes content in BHL. Here we count the number of non-BHL DOIs where BHL is the \"best\" source (an example is [10.1002/fedr.19110090704](http://doi.org/10.1002/fedr.19110090704), best viewed in Chrome or Firefox with the Unpaywall extension). This is a measure of how much BHL is enabling access to paywalled articles, and depends on BHL adding external DOIs to its content.\n";
 
-	$sql = "SELECT COUNT(doi) as count FROM doi WHERE doi NOT LIKE '10.5962%' AND unpaywall=1";
+	$sql = "SELECT COUNT(doi) as count FROM unpaywall WHERE doi NOT LIKE '10.5962%' AND unpaywall=1";
 
 	$data = do_query($sql);
 
@@ -117,7 +186,7 @@ echo "Script run " . date("Y-m-d", time()) . "\n";
 	echo "\n## Are people citing these new DOIs?\n";
 	echo "[OpenCitations](http://opencitations.net) is building a database of citations sourced from CrossRef and elsewhere. Citations are pairs of DOIs. We can count the number of citations for works in BHL with new style DOIs\n";
 
-	$sql = "SELECT COUNT(cited) as count FROM citation";
+	$sql = "SELECT COUNT(cited) as count FROM citation WHERE cited LIKE '10.5962/p.%'";
 
 	$data = do_query($sql);
 
@@ -130,7 +199,10 @@ echo "Script run " . date("Y-m-d", time()) . "\n";
 	echo "\n## Top ten cited DOIs in OpenCitations\n";
 	echo "These are the most cited articles with new BHL DOIs.\n";
 
-	$sql = "SELECT cited AS doi, COUNT(cited) as count FROM citation GROUP BY doi ORDER BY count DESC LIMIT 10";
+	$sql = "SELECT cited AS doi, COUNT(cited) as count 
+	FROM citation 
+    WHERE cited LIKE '10.5962/p.%'
+	GROUP BY doi ORDER BY count DESC LIMIT 10";
 
 	$data = do_query($sql);
 
@@ -143,7 +215,10 @@ echo "Script run " . date("Y-m-d", time()) . "\n";
 	echo "\n## If the new DOIs were a researcher what would be their _h_-index?\n";
 	echo "> The _h_-index is defined as the maximum value of _h_ such that the given author/journal has published at least _h_ papers that have each been cited at least _h_ times. [Wikipedia](https://en.wikipedia.org/wiki/H-index). See Winker K, Withrow JJ (2013) Small collections make a big impact. Nature 493(7433):480–480. [https://doi.org/10.1038/493480b](https://doi.org/10.1038/493480b)\n";
 
-	$sql = "SELECT cited AS doi, COUNT(cited) as count FROM citation GROUP BY doi ORDER BY count DESC LIMIT 100";
+	$sql = "SELECT cited AS doi, COUNT(cited) as count 
+	FROM citation 
+	WHERE cited LIKE '10.5962/p.%'
+	GROUP BY cited ORDER BY count DESC LIMIT 100";
 
 	$data = do_query($sql);
 	
@@ -167,7 +242,10 @@ echo "Script run " . date("Y-m-d", time()) . "\n";
 	echo "\n## How relevant are articles with new-style BHL DOIs?\n";
 	echo "If articles with new style DOIs are relevant to current researchers then we would expect to see them cited in recently published papers. This table lists the number of citations of new DOI in each decade, showing that recently papers do indeed cite BHL content. Note that citation links are continually updated, so that these newly minted BHL DOIs are enabling citation links to be created between works have been published long before BHL began.\n";
 
-	$sql = "SELECT SUBSTR(creation,1,4)/10 * 10 AS decade, COUNT(cited) as count FROM citation WHERE creation != '' GROUP BY decade ORDER BY decade DESC";
+	$sql = "SELECT SUBSTR(creation,1,4)/10 * 10 AS decade, COUNT(cited) as count 
+	FROM citation 
+	WHERE cited LIKE '10.5962/p.%'
+	AND creation != '' GROUP BY decade ORDER BY decade DESC";
 
 	$data = do_query($sql);
 
@@ -176,6 +254,51 @@ echo "Script run " . date("Y-m-d", time()) . "\n";
 	data_to_table($data);
 	
 	
+}
+
+{
+	echo "\n## Citations across all BHL DOIs\n";
+		
+	$sql = "SELECT cited AS doi, COUNT(cited) as count 
+	FROM citation  GROUP BY cited";
+
+	$data = do_query($sql);
+	
+	$title = new stdclass;
+	$title->type = 'title';
+	$title->count = 0;
+
+	$part = new stdclass;
+	$part->type = 'part';
+	$part->count = 0;
+
+	$piwg = new stdclass;
+	$piwg->type = 'piwg';
+	$piwg->count = 0;
+
+	foreach ($data as $row)
+	{
+		if (preg_match('/title/', $row->doi))
+		{
+			$title->count+= $row->count;
+		}
+
+		if (preg_match('/part/', $row->doi))
+		{
+			$part->count+= $row->count;
+		}
+
+		if (preg_match('/p\./', $row->doi))
+		{
+			$piwg->count+= $row->count;
+		}
+	}
+	
+	$pie = array($title,$part,$piwg);
+	
+	data_to_table($pie);
+	
+	data_to_pie_chart($pie, "Citations of different types of BHL DOI");
 }
 
 
