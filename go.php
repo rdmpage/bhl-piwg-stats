@@ -10,6 +10,7 @@ function data_to_table($data)
 	{
 		$header[] = $k;
 	}
+	echo "\n";
 	echo "|" . join(" | ", $header) . "|\n";
 	
 	for ($i = 0; $i < count($header) - 1; $i++)
@@ -68,7 +69,7 @@ function data_to_barchart($data, $title, $limit = 10)
 		if ($count ==  $limit) break;
 	}
 	
-	echo "```mermaid\n";
+	echo "\n```mermaid\n";
 	echo "xychart-beta\n";
 	echo "   title \"$title\"\n";
 	echo "    x-axis [" . join(",", $x) . "]\n";
@@ -83,7 +84,7 @@ function data_to_pie_chart($data, $title, $limit = 10)
 {
 	$count = 0;
 	
-	echo "```mermaid\n";
+	echo "\n```mermaid\n";
 	echo "pie title $title\n";
 	
 	foreach ($data as $row)
@@ -99,7 +100,6 @@ function data_to_pie_chart($data, $title, $limit = 10)
 		$count++;
 		if ($count ==  $limit) break;
 	}
-	echo "\n";
 	echo "```\n";
 }
 
@@ -144,7 +144,7 @@ echo "Script run " . date("Y-m-d", time()) . "\n";
 	echo "\n## Types of BHL DOIs\n";
 	
 	echo "Previously BHL has minted DOIs for \"title\" (e.g., monographs) and \"parts\" (e.g. articles). ";
-	echo "The PIWG is minting DOIs primarily for articles. The charts below sumamrise how many DOIs of the different sorts have been minted.";
+	echo "The PIWG is minting DOIs primarily for articles. The charts below summarise how many DOIs of the different sorts have been minted.";
 	
 	$sql = "SELECT DOI as doi FROM doi WHERE doi LIKE '10.5962/%'";
 
@@ -307,6 +307,8 @@ echo "Script run " . date("Y-m-d", time()) . "\n";
 
 {
 	echo "\n## Citations of all BHL DOIs\n";
+	
+	echo "Total number of citations across all types of BHL DOI\n";
 		
 	$sql = "SELECT cited AS doi, COUNT(cited) as count 
 	FROM citation  GROUP BY cited";
@@ -353,6 +355,8 @@ echo "Script run " . date("Y-m-d", time()) . "\n";
 {
 	echo "\n## Top ten cited BHL DOIs (of any kind)\n";
 	echo "These are the most cited articles with BHL DOIs for titles, parts, or segments\n";
+	
+	echo "Note that the DOI [10.1017/cbo9780511703829](https://opencitations.net/index/search?text=10.1017%2Fcbo9780511703829&rule=citeddoi) is NOt a BHL DOI, but OpenCitations have clustered it with all the DOIs for the same work: The Descent of Man and Selection in Relation to Sex.\n";
 
 	$sql = "SELECT cited AS doi, COUNT(cited) as count 
 	FROM citation 

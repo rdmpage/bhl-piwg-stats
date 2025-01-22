@@ -1,8 +1,9 @@
 # Impact of new-style BHL DOIs "10.5962/p."
-Script run 2025-01-16
+Script run 2025-01-22
 
 ## DOI prefixes in BHL
 Typically different publishers have their own unique DOI prefix, but this can change as publishers merge, or acquire new content from other publishers. These are the prefixes for content hosted by BHL. Note that **10.5962** is the BHL prefix.
+
 |prefix | count|
 |--|--|
 |10.5962 | 186651|
@@ -82,6 +83,7 @@ Typically different publishers have their own unique DOI prefix, but this can ch
 |10.1146 | 1|
 |10.1016 | 1|
 
+
 ```mermaid
 pie title Top ten DOI prefixes in BHL
    "10.5962":186651
@@ -94,27 +96,28 @@ pie title Top ten DOI prefixes in BHL
    "10.1071":2728
    "10.1093":2153
    "10.1007":2007
-
 ```
 
 ## Non BHL DOIs in BHL
 DOIs minted by other organisations, may be commercial publishers, repositories, or BHL members.
+
 |count|
 --|
 |69192|
 
 
 ## Types of BHL DOIs
-Previously BHL has minted DOIs for "title" (e.g., monographs) and "parts" (e.g. articles). The PIWG is minting DOIs primarily for articles. The charts below sumamrise how many DOIs of the different sorts have been minted.```mermaid
+Previously BHL has minted DOIs for "title" (e.g., monographs) and "parts" (e.g. articles). The PIWG is minting DOIs primarily for articles. The charts below summarise how many DOIs of the different sorts have been minted.
+```mermaid
 pie title Different types of BHl DOI
    "title":123185
    "part":12517
    "piwg":50461
-
 ```
 
 ## New style BHL DOIs
 Total number of DOIs minted as part of PIWG activities.
+
 |prefix | count|
 |--|--|
 |10.5962/p. | 50461|
@@ -122,6 +125,7 @@ Total number of DOIs minted as part of PIWG activities.
 
 ## New style BHL DOIs minted each year
 Activity for each year.
+
 |year | count|
 |--|--|
 |2020 | 46|
@@ -129,6 +133,7 @@ Activity for each year.
 |2022 | 4962|
 |2023 | 7390|
 |2024 | 26934|
+
 
 ```mermaid
 xychart-beta
@@ -140,6 +145,7 @@ xychart-beta
 
 ## When does Unpaywall say BHL is best?
 [Unpaywall](https://unpaywall.org/) has a database of open access versions of articles, which includes content in BHL. Here we count the number of non-BHL DOIs where BHL is the "best" source (an example is [10.1002/fedr.19110090704](http://doi.org/10.1002/fedr.19110090704), best viewed in Chrome or Firefox with the Unpaywall extension). This is a measure of how much BHL is enabling access to paywalled articles, and depends on BHL adding external DOIs to its content.
+
 |count|
 --|
 |46293|
@@ -147,6 +153,7 @@ xychart-beta
 
 ## Are people citing these new DOIs?
 [OpenCitations](http://opencitations.net) is building a database of citations sourced from CrossRef and elsewhere. Citations are pairs of DOIs. We can count the number of citations for works in BHL with new style DOIs
+
 |count|
 --|
 |61661|
@@ -154,6 +161,7 @@ xychart-beta
 
 ## Top ten cited DOIs in OpenCitations
 These are the most cited articles with new BHL DOIs.
+
 |doi | count|
 |--|--|
 |[10.5962/p.325716](https://opencitations.net/index/search?text=10.5962%2Fp.325716&rule=citeddoi) | 562|
@@ -175,6 +183,7 @@ _h_-index: **76**
 
 ## How relevant are articles with new-style BHL DOIs?
 If articles with new style DOIs are relevant to current researchers then we would expect to see them cited in recently published papers. This table lists the number of citations of new DOI in each decade, showing that recently papers do indeed cite BHL content. Note that citation links are continually updated, so that these newly minted BHL DOIs are enabling citation links to be created between works have been published long before BHL began.
+
 |decade | count|
 |--|--|
 |2020 | 10116|
@@ -192,6 +201,7 @@ If articles with new style DOIs are relevant to current researchers then we woul
 |1900 | 22|
 |1890 | 3|
 
+
 ```mermaid
 xychart-beta
    title "Numbers of papers published each year that cite new-style BHL DOIs"
@@ -201,22 +211,26 @@ xychart-beta
 ```
 
 ## Citations of all BHL DOIs
+Total number of citations across all types of BHL DOI
+
 |type | count|
 |--|--|
 |title | 265661|
 |part | 44421|
 |piwg | 61661|
 
+
 ```mermaid
 pie title Citations of different types of BHL DOI
    "title":265661
    "part":44421
    "piwg":61661
-
 ```
 
 ## Top ten cited BHL DOIs (of any kind)
 These are the most cited articles with BHL DOIs for titles, parts, or segments
+Note that the DOI [10.1017/cbo9780511703829](https://opencitations.net/index/search?text=10.1017%2Fcbo9780511703829&rule=citeddoi) is NOt a BHL DOI, but OpenCitations have clustered it with all the DOIs for the same work: The Descent of Man and Selection in Relation to Sex.
+
 |doi | count|
 |--|--|
 |[10.5962/bhl.title.82303](https://opencitations.net/index/search?text=10.5962%2Fbhl.title.82303&rule=citeddoi) | 3769|
