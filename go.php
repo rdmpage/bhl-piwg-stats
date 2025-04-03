@@ -122,7 +122,7 @@ echo "Script run " . date("Y-m-d", time()) . "\n";
 
 	// print_r($data);
 
-	data_to_table($data);
+	//data_to_table($data);
 	
 	data_to_pie_chart($data, "Top ten DOI prefixes in BHL");
 }
@@ -161,6 +161,11 @@ echo "Script run " . date("Y-m-d", time()) . "\n";
 	$piwg = new stdclass;
 	$piwg->type = 'piwg';
 	$piwg->count = 0;
+	
+	$t = new stdclass;
+	$t->type = 't';
+	$t->count = 0;
+	
 
 	foreach ($data as $row)
 	{
@@ -178,9 +183,15 @@ echo "Script run " . date("Y-m-d", time()) . "\n";
 		{
 			$piwg->count++;
 		}
+		
+		if (preg_match('/t\./', $row->doi))
+		{
+			$t->count++;
+		}
+		
 	}
 	
-	$pie = array($title,$part,$piwg);
+	$pie = array($title,$part,$piwg, $t);
 	
 	data_to_pie_chart($pie, "Different types of BHl DOI");
 }
@@ -311,7 +322,7 @@ echo "Script run " . date("Y-m-d", time()) . "\n";
 	echo "Total number of citations across all types of BHL DOI\n";
 		
 	$sql = "SELECT cited AS doi, COUNT(cited) as count 
-	FROM citation  GROUP BY cited";
+	FROM citation WHERE cited LIKE '10.5962/%' GROUP BY cited";
 
 	$data = do_query($sql);
 	
@@ -327,25 +338,35 @@ echo "Script run " . date("Y-m-d", time()) . "\n";
 	$piwg->type = 'piwg';
 	$piwg->count = 0;
 
+	$t = new stdclass;
+	$t->type = 't';
+	$t->count = 0;
+
 	foreach ($data as $row)
 	{
-		if (preg_match('/title/', $row->doi))
+		if (preg_match('/10.5962\/bhl.title/', $row->doi))
 		{
 			$title->count+= $row->count;
 		}
 
-		if (preg_match('/part/', $row->doi))
+		if (preg_match('/10.5962\/bhl.part/', $row->doi))
 		{
 			$part->count+= $row->count;
 		}
 
-		if (preg_match('/p\./', $row->doi))
+		if (preg_match('/10.5962\/p\./', $row->doi))
 		{
 			$piwg->count+= $row->count;
 		}
+		
+		if (preg_match('/10.5962\/t\./', $row->doi))
+		{
+			$t->count+= $row->count;
+		}
+		
 	}
 	
-	$pie = array($title,$part,$piwg);
+	$pie = array($title,$part,$piwg, $t);
 	
 	data_to_table($pie);
 	
@@ -356,7 +377,7 @@ echo "Script run " . date("Y-m-d", time()) . "\n";
 	echo "\n## Top ten cited BHL DOIs (of any kind)\n";
 	echo "These are the most cited articles with BHL DOIs for titles, parts, or segments\n";
 	
-	echo "Note that the DOI [10.1017/cbo9780511703829](https://opencitations.net/index/search?text=10.1017%2Fcbo9780511703829&rule=citeddoi) is NOt a BHL DOI, but OpenCitations have clustered it with all the DOIs for the same work: The Descent of Man and Selection in Relation to Sex.\n";
+	echo "Note that the DOI [10.1017/cbo9780511703829](https://opencitations.net/index/search?text=10.1017%2Fcbo9780511703829&rule=citeddoi) is NOT a BHL DOI, but OpenCitations have clustered it with all the DOIs for the same work: The Descent of Man and Selection in Relation to Sex.\n";
 
 	$sql = "SELECT cited AS doi, COUNT(cited) as count 
 	FROM citation 
@@ -381,7 +402,7 @@ if (0)
 }
 
 
-if (0)
+if (1)
 {
 	// create data dumps for further analysis
 	
@@ -401,6 +422,24 @@ if (0)
 	asort($dois);
 	
 	file_put_contents('pdoi.txt' , join("\n", $dois));
+	
+	// BHL DOis not PIWG
+	$sql = "SELECT doi FROM doi WHERE doi LIKE '10.5962/%' AND NOT doi LIKE '10.5962/p.%'";
+	
+	$dois = array();
+	
+	$data = do_query($sql);
+	
+	
+	foreach ($data as $row)
+	{
+		$dois[] = $row->DOI;
+	}
+	
+	asort($dois);
+	
+	file_put_contents('bhlolddoi.txt' , join("\n", $dois));
+	
 	
 	// Non BHL DOIs
 	

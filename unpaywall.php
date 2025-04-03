@@ -154,15 +154,17 @@ while (!feof($file_handle))
 
 		echo "-- query Unpaywall\n";
 		doi_to_oa($doi);
+		
+		// Give server a break every 10 items
+		if (($row_count++ % 5) == 0)
+		{
+			$rand = rand(1000000, 3000000);
+			echo "\n-- ...sleeping for " . round(($rand / 1000000),2) . ' seconds' . "\n\n";
+			usleep($rand);
+		}		
 	}
 	
-	// Give server a break every 10 items
-	if (($row_count++ % 5) == 0)
-	{
-		$rand = rand(1000000, 3000000);
-		echo "\n-- ...sleeping for " . round(($rand / 1000000),2) . ' seconds' . "\n\n";
-		usleep($rand);
-	}
+
 	
 
 }
