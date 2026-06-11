@@ -18,6 +18,8 @@ function get($url)
 	$data = curl_exec($ch);
 	$info = curl_getinfo($ch); 
 	curl_close($ch);
+	
+	//print_r($info);
 
 	return $data;
 }
@@ -31,10 +33,10 @@ $filename = 'pdoi.txt';
 //$filename = 'title.txt';
 //$filename = 'part.txt';
 //$filename = 'test.txt';
-$filename = 'bhlolddoi.txt';
+//$filename = 'bhlolddoi.txt';
 
 $force = true; // redo
-//$force = false; // just do ones we haven't got data for
+$force = false; // just do ones we haven't got data for
 
 $file = @fopen($filename, "r") or die("couldn't open $filename");
 
