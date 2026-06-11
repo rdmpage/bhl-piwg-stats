@@ -1,6 +1,6 @@
 # Impact of new-style BHL DOIs "10.5962/p."
 Script run 2026-06-11 
-:warning: The citation data for this run are incomplete and hence are an underestimate of the true total.
+- :warning: The citation data for this run are incomplete and hence are an underestimate of the true total.
 
 ## DOI prefixes in BHL
 Typically different publishers have their own unique DOI prefix, but this can change as publishers merge, or acquire new content from other publishers. These are the prefixes for content hosted by BHL. Note that **10.5962** is the BHL prefix.
